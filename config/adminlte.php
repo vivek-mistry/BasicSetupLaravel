@@ -311,6 +311,16 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        [
+            'text' => 'Dashboard',
+            'url'  => 'dashboard',
+            'icon' => 'fas fa-fw fa-share',
+        ],
+        [
+            'text' => 'Category',
+            'url'  => 'category',
+            'icon' => 'fas fa-fw fa-share',
+        ],
         /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',

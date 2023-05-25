@@ -44,6 +44,10 @@ Route::prefix('product')->middleware('auth')->group(function(){
     Route::post('update/{id}', [ProductController::class, 'update'])->name('product_update');
 
     Route::get('remove/{id}', [ProductController::class, 'remove'])->name('product_remove');
+
+    Route::get('import', [ProductController::class, 'import'])->name('product_import');
+
+    Route::post('import-code', [ProductController::class, 'importCode'])->name('product_import_code');
 });
 
 Auth::routes();

@@ -19,6 +19,7 @@
 
                         <div class="card-header">
                             <a href="{{ route('product_create') }}" type="button" class="btn btn-primary btn-sm pull-right">Add Product</a>
+                            <a href="{{ route('product_import') }}" type="button" class="btn btn-primary btn-sm pull-right">Bulk Product</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

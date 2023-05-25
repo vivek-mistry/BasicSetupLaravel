@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +30,20 @@ Route::prefix('category')->middleware('auth')->group(function(){
     Route::post('update/{id}', [CategoryController::class, 'update'])->name('category_update');
 
     Route::get('remove/{id}', [CategoryController::class, 'remove'])->name('category_remove');
+});
+
+Route::prefix('product')->middleware('auth')->group(function(){
+    Route::get('/', [ProductController::class, 'index'])->name('product_list');
+
+    Route::get('create', [ProductController::class, 'create'])->name('product_create');
+
+    Route::post('store', [ProductController::class, 'store'])->name('product_store');
+
+    Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product_edit');
+
+    Route::post('update/{id}', [ProductController::class, 'update'])->name('product_update');
+
+    Route::get('remove/{id}', [ProductController::class, 'remove'])->name('product_remove');
 });
 
 Auth::routes();

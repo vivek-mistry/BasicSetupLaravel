@@ -321,6 +321,11 @@ return [
             'url'  => 'category',
             'icon' => 'fas fa-fw fa-share',
         ],
+        [
+            'text' => 'Product',
+            'url'  => 'product',
+            'icon' => 'fas fa-fw fa-share',
+        ],
         /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',

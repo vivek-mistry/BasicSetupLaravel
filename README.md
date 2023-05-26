@@ -10,3 +10,11 @@ Implement Yajra datatables and in build js validation.
 - npm install
 - php artisan migrate
 - npm run build
+
+## Features
+
+- Laravel built-in login/register
+- Proegnosoft validation
+- Yaajra Data Tables
+- Import using laravel import
+- Yaajra data tables export functionality

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\View\Components\common\BaseUrl;
 use App\View\Components\common\CategoryDropDown;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -22,5 +23,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::component('category-dropdown', CategoryDropDown::class);
+        Blade::component('base-url', BaseUrl::class);
     }
 }

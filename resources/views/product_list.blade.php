@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1>Product</h1>
+    <x-base-url/>
 @stop
 
 @section('content')

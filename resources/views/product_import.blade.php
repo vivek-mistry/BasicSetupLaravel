@@ -1,6 +1,6 @@
-@extends('adminlte::page')
+@extends('master')
 
-@section('title', 'Dashboard')
+@section('title', 'Import Product')
 
 @section('content_header')
     <h1>Import Product</h1>

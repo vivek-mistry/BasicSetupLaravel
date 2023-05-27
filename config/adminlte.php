@@ -339,6 +339,12 @@ return [
             'icon' => 'fas fa-fw fa-share',
             'active' => ['product', 'product*']
         ],
+        [
+            'text' => 'Customer',
+            'url'  => 'customer',
+            'icon' => 'fas fa-fw fa-share',
+            'active' => ['customer', 'customer*']
+        ],
         /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',

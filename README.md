@@ -18,3 +18,4 @@ Implement Yajra datatables and in build js validation.
 - Yaajra Data Tables
 - Import using laravel import
 - Yaajra data tables export functionality
+- Customer & Cart Module Added

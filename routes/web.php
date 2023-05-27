@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +49,18 @@ Route::prefix('product')->middleware('auth')->group(function(){
     Route::get('import', [ProductController::class, 'import'])->name('product_import');
 
     Route::post('import-code', [ProductController::class, 'importCode'])->name('product_import_code');
+});
+
+Route::prefix('customer')->middleware('auth')->group(function(){
+    Route::get('/', [CustomerController::class, 'index'])->name('customer_list');
+
+    Route::get('create', [CustomerController::class, 'create'])->name('customer_create');
+
+    Route::post('store', [CustomerController::class, 'store'])->name('customer_store');
+
+    Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer_edit');
+
+    Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer_update');
 });
 
 Route::prefix('cart')->middleware('auth')->group(function(){

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -47,6 +48,14 @@ Route::prefix('product')->middleware('auth')->group(function(){
     Route::get('import', [ProductController::class, 'import'])->name('product_import');
 
     Route::post('import-code', [ProductController::class, 'importCode'])->name('product_import_code');
+});
+
+Route::prefix('cart')->middleware('auth')->group(function(){
+    Route::post('store', [CartController::class, 'addToCart'])->name('cart_store');
+
+    Route::get('detail', [CartController::class, 'detail'])->name('cart_detail');
+
+    Route::get('remove/{id}', [CartController::class, 'remove'])->name('cart_remove');
 });
 
 Auth::routes();

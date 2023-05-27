@@ -29,7 +29,13 @@ class ProductDataTable extends DataTable
             $action = $edit.$delete;
             return $action;
         })
-            ->setRowId('id');
+        ->addColumn('add_to_cart', function(Product $product) {
+
+            $action = "<a class='btn btn-sm btn-warning' onclick='addToCart(".$product->id.")'><i class='fa fa-shopping-bag'></i></a>";
+            return $action;
+        })
+        ->rawColumns(['action', 'add_to_cart'])
+        ->setRowId('id');
     }
 
     /**
@@ -77,6 +83,7 @@ class ProductDataTable extends DataTable
 
             Column::make('id'),
             Column::make('product_name'),
+            Column::make('add_to_cart'),
             Column::make('action')
         ];
     }

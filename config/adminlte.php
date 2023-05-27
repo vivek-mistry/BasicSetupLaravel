@@ -298,7 +298,7 @@ return [
         // ],
         [
             'text' => '',
-            'url'  => 'cart',
+            'route'  => 'cart_detail',
             'icon' => 'fas fa-fw fa-shopping-bag',
             'topnav_right' => true,
         ],
@@ -448,6 +448,7 @@ return [
     */
 
     'plugins' => [
+
         'Datatables' => [
             'active' => false,
             'files' => [
@@ -494,12 +495,17 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css',
+                ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js',
                 ],
             ],
         ],
@@ -517,6 +523,16 @@ return [
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
+        ],
+        'Common' =>[
+            'active' =>true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/js/common.js',
+                ],
+            ]
         ],
     ],
 

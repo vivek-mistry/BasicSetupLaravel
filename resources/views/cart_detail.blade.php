@@ -69,25 +69,28 @@
                 </div>
 
                 <div class="card-footer">
-                    <h2>Customer Detail</h2>
+                    <h2>Customer Detail
+                        <a class="btn btn-warning float-right" id="reset_form"> Reset Form</a>
+                    </h2>
 
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
                                 <label>Mobile No *</label>
-                                <input type="number" name="mobile_no" placeholder="Mobile No" class="form-control">
+                                <input type="hidden" id="customer_id" name="customer_id">
+                                <input type="text" name="mobile_no" placeholder="Mobile No" id="mobile_no" class="typeahead form-control">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label>Name *</label>
-                                <input type="text" name="name" placeholder="Name" class="form-control">
+                                <input type="text" name="name" placeholder="Name" id="name" class="form-control">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label>Email </label>
-                                <input type="email" name="email" placeholder="Email" class="form-control">
+                                <input type="email" name="email" placeholder="Email" id="email" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -122,3 +125,49 @@
     </div>
 </div>
 @endsection
+
+@section('js')
+    <script>
+        $("#reset_form").on('click', function(){
+            $('#mobile_no').val('');
+            $('#name').val('');
+            $('#email').val('');
+            $('#customer_id').val('');
+        });
+        var route = BASE_URL + '/customer/search';
+        $("#mobile_no").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: route,
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        search: request.term
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        response(data);
+                    }
+                });
+            },
+            select: function(event, ui) {
+                $('#mobile_no').val(ui.item.mobile_no);
+                $('#name').val(ui.item.name);
+                $('#email').val(ui.item.email);
+                $('#customer_id').val(ui.item.id);
+
+                return false;
+            },
+            change: function (event, ui) {
+                if (ui.item === null) {
+                    $('#parent_id').val('')
+                    return false;
+                }
+            }
+
+        }).autocomplete("instance")._renderItem = function(ul, item) {
+            var item = item.name + '(' + item.mobile_no + ')'
+            return $("<li>").append(item).appendTo(ul);
+        };
+    </script>
+@stop

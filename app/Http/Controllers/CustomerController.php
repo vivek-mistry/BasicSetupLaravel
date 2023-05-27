@@ -41,4 +41,13 @@ class CustomerController extends Controller
         Customer::where('id', $id)->update($request_data);
         return redirect()->route('customer_list');
     }
+
+    public function search(Request $request)
+    {
+        $request_data = $request->all();
+        $request_data['search'];
+        $result = Customer::where('mobile_no', 'LIKE', '%'. $request_data['search']. '%')->get();
+
+        return response()->json($result);
+    }
 }

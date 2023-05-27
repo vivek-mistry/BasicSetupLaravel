@@ -530,6 +530,21 @@ return [
                 ],
             ],
         ],
+        'UI' =>[
+            'active' => true,
+            'files'=>[
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js',
+                ],
+            ]
+        ],
         'Common' =>[
             'active' =>true,
             'files' => [

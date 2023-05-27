@@ -61,6 +61,8 @@ Route::prefix('customer')->middleware('auth')->group(function(){
     Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer_edit');
 
     Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer_update');
+
+    Route::get('search', [CustomerController::class, 'search'])->name('customer_search');
 });
 
 Route::prefix('cart')->middleware('auth')->group(function(){

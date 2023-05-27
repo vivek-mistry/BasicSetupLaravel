@@ -72,7 +72,7 @@
                     <h2>Customer Detail
                         <a class="btn btn-warning float-right" id="reset_form"> Reset Form</a>
                     </h2>
-
+                    {{ Form::open(['url' => route('generate_invoice'), 'files' => true, 'class' => 'multiple-form-submit']) }}
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
@@ -119,6 +119,7 @@
                             <button type="submit" class="btn btn-primary">Generate Invoice</button>
                         </div>
                     </div>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
@@ -127,6 +128,8 @@
 @endsection
 
 @section('js')
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/jsvalidation.js') }}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\GenerateInvoiceRequest') !!}
     <script>
         $("#reset_form").on('click', function(){
             $('#mobile_no').val('');

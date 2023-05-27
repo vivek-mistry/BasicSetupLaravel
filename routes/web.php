@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,8 @@ Route::prefix('cart')->middleware('auth')->group(function(){
 
     Route::get('remove/{id}', [CartController::class, 'remove'])->name('cart_remove');
 });
+
+Route::post('generate-invoice', [InvoiceController::class, 'generateInvoice'])->name('generate_invoice')->middleware('auth');
 
 Auth::routes();
 

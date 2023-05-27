@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\InvoiceDataTable;
 use App\Events\GenerateInvoiceEvent;
 use App\Http\Requests\GenerateInvoiceRequest;
 use Illuminate\Http\Request;
@@ -9,9 +10,9 @@ use Illuminate\Http\Request;
 class InvoiceController extends Controller
 {
 
-    public function index()
+    public function index(InvoiceDataTable $dataTable)
     {
-
+        return $dataTable->render('invoice_list');
     }
 
     public function generateInvoice(GenerateInvoiceRequest $request)

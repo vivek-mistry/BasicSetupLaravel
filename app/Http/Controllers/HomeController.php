@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Customer;
+use App\Models\Invoice;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,7 @@ class HomeController extends Controller
         $data['category_count'] = Category::all()->count();
         $data['product_count'] = Product::all()->count();
         $data['customer_count'] = Customer::all()->count();
+        $data['invoice_count'] = Invoice::all()->count();
         return view('welcome')->with($data);
     }
 }

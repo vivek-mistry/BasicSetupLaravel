@@ -345,6 +345,12 @@ return [
             'icon' => 'fas fa-fw fa-share',
             'active' => ['customer', 'customer*']
         ],
+        [
+            'text' => 'Invoice',
+            'url'  => 'invoices',
+            'icon' => 'fas fa-fw fa-share',
+            'active' => ['invoices', 'invoices*']
+        ],
         /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',

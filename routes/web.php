@@ -74,6 +74,10 @@ Route::prefix('cart')->middleware('auth')->group(function(){
     Route::get('remove/{id}', [CartController::class, 'remove'])->name('cart_remove');
 });
 
+Route::prefix('invoices')->middleware('auth')->group(function(){
+    Route::get('/', [InvoiceController::class, 'index'])->name('invoices_list');
+});
+
 Route::post('generate-invoice', [InvoiceController::class, 'generateInvoice'])->name('generate_invoice')->middleware('auth');
 
 Auth::routes();

@@ -12,4 +12,9 @@ class InvoiceDetail extends Model
     protected $table_name = 'invoice_details';
 
     public $fillable = ['invoice_id', 'product_id', 'customer_id', 'quantity', 'per_quantity_price', 'total_price'];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'id', 'product_id');
+    }
 }

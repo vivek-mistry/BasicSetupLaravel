@@ -76,6 +76,8 @@ Route::prefix('cart')->middleware('auth')->group(function(){
 
 Route::prefix('invoices')->middleware('auth')->group(function(){
     Route::get('/', [InvoiceController::class, 'index'])->name('invoices_list');
+
+    Route::get('detail/{id}', [InvoiceController::class, 'detail'])->name('invoices_detail');
 });
 
 Route::post('generate-invoice', [InvoiceController::class, 'generateInvoice'])->name('generate_invoice')->middleware('auth');

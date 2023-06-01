@@ -22,6 +22,10 @@ class InvoiceDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
+            ->addColumn('action',  function (Invoice $invoice){
+                $action = "<a href='".route('invoices_detail', ['id' => $invoice->id])."' class='btn btn-sm btn-warning' target='_blank'><i class='fa fa-eye'></i></a>";
+                return $action;
+            })
             ->addColumn('customer_name', function(Invoice $invoice) {
 
                 // $action = "<a class='btn btn-sm btn-warning' onclick='addToCart(".$product->id.")'><i class='fa fa-shopping-bag'></i></a>";
@@ -32,7 +36,7 @@ class InvoiceDataTable extends DataTable
                 // $action = "<a class='btn btn-sm btn-warning' onclick='addToCart(".$product->id.")'><i class='fa fa-shopping-bag'></i></a>";
                 return $invoice->customer->mobile_no;
             })
-             ->rawColumns(['customer_name'])
+            ->rawColumns(['customer_name', 'action'])
             ->setRowId('id');
     }
 
@@ -71,6 +75,7 @@ class InvoiceDataTable extends DataTable
             Column::make('total_price'),
             Column::make('payment_type'),
             Column::make('note'),
+            Column::make('action'),
         ];
     }
 

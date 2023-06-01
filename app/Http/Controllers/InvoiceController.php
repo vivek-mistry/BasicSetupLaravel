@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\InvoiceDataTable;
 use App\Events\GenerateInvoiceEvent;
 use App\Http\Requests\GenerateInvoiceRequest;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -20,6 +21,13 @@ class InvoiceController extends Controller
         event(new GenerateInvoiceEvent($request));
 
         return redirect()->route('cart_detail');
+    }
+
+    public function detail($invoice_id)
+    {
+        $data['invoice'] = Invoice::with(['customer', 'invoice_detail', 'invoice_detail.product'])->where('id' ,'=', $invoice_id)->first();
+        // dd($data['invoice']);
+        return view('invoice_detail')->with($data);
     }
 
 

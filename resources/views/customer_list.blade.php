@@ -23,7 +23,7 @@
 
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body table-responsive">
 
                             <!-- <div style="float: left;"><b>Today Registered Students</b></div> -->
                             <!-- <a class="btn btn-primary btn-sm" style="float:right">Add Coach</a> -->

@@ -36,6 +36,9 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "app/Helpers/formathelper.php"
+        ],
         "psr-4": {
             "Tests\\": "tests/"
         }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
@@ -83,5 +84,12 @@ Route::prefix('invoices')->middleware('auth')->group(function(){
 Route::post('generate-invoice', [InvoiceController::class, 'generateInvoice'])->name('generate_invoice')->middleware('auth');
 
 Auth::routes();
+
+Route::get('/', function(){
+    return redirect('login');
+});
+
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
